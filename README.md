@@ -19,7 +19,7 @@ This project replicates and extends the FDW (Forecast Discrepancy Weighting) met
 All improvements are implemented in `improved_wrapper.py` and operate **only at inference time** — the MTGNN model is unchanged.
 
 ### Improvement 1 — Cosine Similarity Retrieval
-Replaces L-p norm distance with **cosine distance** for retrieving k nearest neighbour windows from the prototype bank, computed on the observed subset $S$ only. Cosine similarity captures time-series shape similarity independent of absolute amplitude.
+Replaces the original distance with **cosine distance** for retrieving k nearest neighbour windows from the prototype bank, computed on the observed subset $S$ only. Cosine similarity captures time-series shape similarity independent of absolute amplitude.
 
 ### Improvement 2 — Adaptive Softmax Temperature
 Replaces the fixed global temperature $\tau = 0.1$ with a **per-sample adaptive temperature** equal to the standard deviation of the $k$ neighbours' discrepancy scores. This allows the aggregation sharpness to adapt to the actual quality variance among neighbours for each test instance.
