@@ -190,7 +190,6 @@ run_all.bat eval
 | TRAFFIC (MAE) | 18.927 | 11.200 | 11.195 | 11.831 |
 | TRAFFIC (RMSE) | 39.167 | 27.660 | 27.654 | 28.657 |
 
-For full per-horizon results and analysis, see [`experiment_report.md`](experiment_report.md).
 
 ---
 
