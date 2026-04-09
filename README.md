@@ -47,7 +47,6 @@ vsf-time-series/
 ├── util.py                  # Data utilities (unchanged)
 ├── generate_training_data.py# Dataset preprocessing
 ├── requirements.txt         # Python dependencies
-├── experiment_report.md     # Full results and analysis
 └── data/                    # Dataset directory (not tracked by git)
     ├── SOLAR/
     ├── TRAFFIC/
