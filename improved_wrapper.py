@@ -3,7 +3,7 @@
 Improved VSF Wrapper - Three enhancements over the original FDW:
 
   Improvement 1 – Cosine Retrieval:
-      Replace the fixed L-p distance (dist_exp_value=0.5) used in the
+      Replace the original distance (dist_exp_value=0.5) used in the
       original code with cosine similarity for neighbour retrieval.
       Time-series *shape* similarity matters more than absolute magnitude
       differences, so cosine distance is a better proxy.

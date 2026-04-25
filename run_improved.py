@@ -133,6 +133,9 @@ parser.add_argument('--fraction_prots',          type=float,        default=1.0)
 parser.add_argument('--use_improved_wrapper', type=str_to_bool, default=False,
                     help='Enable all three improvements (cosine retrieval + '
                          'adaptive temp + joint weighting)')
+parser.add_argument('--use_cosine_only', type=str_to_bool, default=False,
+                    help='Enable Improvement 1 only: cosine retrieval with '
+                         'original FDW fixed-temperature weighting')
 parser.add_argument('--joint_alpha', type=float, default=0.3,
                     help='Mixing coefficient α for joint weighting: '
                          '0 = pure FDW, 1 = pure cosine DDW')
@@ -308,6 +311,90 @@ def run_improved_inference(args, engine, dataloader, instance_prototypes,
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Improvement 1 only: cosine retrieval + original FDW fixed-temperature weighting
+# ─────────────────────────────────────────────────────────────────────────────
+
+def run_cosine_only_inference(args, engine, dataloader, instance_prototypes,
+                              device, scaler):
+    """
+    Improvement 1 in isolation: use cosine retrieval for neighbour selection,
+    then apply the original FDW weighting (fixed τ=neighbor_temp, forecast
+    discrepancy only — no adaptive temperature, no joint DDW+FDW).
+    """
+    outputs = []
+    realy   = torch.Tensor(dataloader['y_test']).to(device)
+    realy   = realy.transpose(1, 3)[:, 0, :, :]
+
+    idx_current_nodes = get_node_random_idx_split(
+        args, args.num_nodes,
+        args.lower_limit_random_node_selections,
+        args.upper_limit_random_node_selections
+    )
+    realy = realy[:, idx_current_nodes, :]
+
+    for _, (x, y) in enumerate(dataloader['test_loader'].get_iterator()):
+        testx  = torch.Tensor(x).to(device).transpose(1, 3)  # (B, C, N, T)
+        b_size = testx.shape[0]
+        k      = args.num_neighbors_borrow
+
+        # Improvement 1: cosine retrieval
+        cos_dist, topk_idxs = cosine_retrieval(
+            testx, instance_prototypes, idx_current_nodes, k, device
+        )
+
+        # fill missing variables from each neighbour
+        testx_filled, orig_neighs = build_neighbour_inputs(
+            testx, instance_prototypes, topk_idxs,
+            idx_current_nodes, k, device
+        )
+
+        with torch.no_grad():
+            preds_flat = engine.model(
+                testx_filled, args=args,
+                mask_remaining=False,
+                test_idx_subset=idx_current_nodes
+            )
+            preds_flat = preds_flat.transpose(1, 3)[:, 0, :, :]   # (B*k, N, T)
+            preds_flat = preds_flat[:, idx_current_nodes, :]       # (B*k, |S|, T)
+            preds_split = _split_preds_by_neighbor(preds_flat, b_size, k)  # (B, k, |S|, T)
+
+            # original FDW discrepancy weighting with fixed temperature
+            orig_neighs_preds = engine.model(
+                orig_neighs, args=args,
+                mask_remaining=False,
+                test_idx_subset=idx_current_nodes
+            )
+            orig_neighs_preds = orig_neighs_preds.transpose(1, 3)[:, 0, :, :]
+            orig_neighs_preds = orig_neighs_preds[:, idx_current_nodes, :]
+            orig_neighs_split = _split_preds_by_neighbor(orig_neighs_preds, b_size, k)
+
+            forecast_disc = compute_forecast_discrepancy(
+                preds_split, orig_neighs_split, k, idx_current_nodes, device
+            )  # (B, k)
+
+            # original FDW softmax with fixed temperature (no adaptive temp)
+            w = torch.nn.functional.softmax(
+                -forecast_disc / args.neighbor_temp, dim=-1
+            ).view(b_size, k, 1, 1)  # (B, k, 1, 1)
+
+            final_pred = (w * preds_split).sum(dim=1)  # (B, |S|, T)
+
+        outputs.append(final_pred)
+
+    yhat  = torch.cat(outputs, dim=0)[:realy.size(0)]
+
+    mae_list, rmse_list = [], []
+    for i in range(args.seq_out_len):
+        pred   = scaler.inverse_transform(yhat[:, :, i])
+        real   = realy[:, :, i]
+        m      = metric(pred, real)
+        mae_list.append(m[0])
+        rmse_list.append(m[1])
+
+    return mae_list, rmse_list, idx_current_nodes
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Original inference  (UW / FDW / Partial / Oracle  – unchanged logic)
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -458,13 +545,13 @@ def main(runid):
 
     # ── Build prototype bank (needed for retrieval-based methods) ─────────────
     instance_prototypes = None
-    if args.use_improved_wrapper or args.borrow_from_train_data:
+    if args.use_improved_wrapper or args.use_cosine_only or args.borrow_from_train_data:
         num_prots = math.floor(args.fraction_prots *
                                dataloader['x_train'].shape[0])
         args.num_prots = num_prots
         print(f'Number of prototypes = {num_prots}')
 
-        if args.use_improved_wrapper:
+        if args.use_improved_wrapper or args.use_cosine_only:
             # Our bank: stores (P, C, N, T) already transposed
             instance_prototypes = build_prototype_bank(
                 dataloader['x_train'], num_prots, device
@@ -484,6 +571,10 @@ def main(runid):
 
         if args.use_improved_wrapper:
             mae, rmse, idx_nodes = run_improved_inference(
+                args, engine, dataloader, instance_prototypes, device, scaler
+            )
+        elif args.use_cosine_only:
+            mae, rmse, idx_nodes = run_cosine_only_inference(
                 args, engine, dataloader, instance_prototypes, device, scaler
             )
         else:
@@ -524,9 +615,10 @@ if __name__ == '__main__':
     srmse    = np.std(all_rmse,  0)
 
     method = ('Improved (cosine+adaptive-T+joint)' if args.use_improved_wrapper
+              else ('Cosine-only (Improvement 1)' if args.use_cosine_only
               else ('FDW' if (args.borrow_from_train_data and args.use_ewp)
               else ('UW'  if  args.borrow_from_train_data
-              else  'Partial')))
+              else  'Partial'))))
 
     sep = '=' * 60
     print(sep)
