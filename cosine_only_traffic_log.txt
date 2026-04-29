@@ -1,0 +1,949 @@
+Shape of  train  input =  (12265, 12, 862, 1)
+Shape of  val  input =  (1752, 12, 862, 1)
+Shape of  test  input =  (3504, 12, 862, 1)
+Number of variables/nodes = 862
+Receptive field: 19
+Parameters: 1336924
+
+Model loaded from ./saved_models/mtgnn/TRAFFIC/exp1_0.pth
+
+Number of prototypes = 12265
+[Prototype bank] shape = torch.Size([12265, 1, 862, 12])
+
+--- Subset split run 0 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.2603  RMSE=22.1037
+  Horizon  2: MAE=10.4283  RMSE=28.4463
+  Horizon  3: MAE=11.5278  RMSE=30.9351
+  Horizon  4: MAE=12.1883  RMSE=32.2535
+  Horizon  5: MAE=12.6036  RMSE=33.2168
+  Horizon  6: MAE=12.7446  RMSE=33.4757
+  Horizon  7: MAE=12.8330  RMSE=33.3922
+  Horizon  8: MAE=12.8484  RMSE=33.2500
+  Horizon  9: MAE=12.8677  RMSE=33.2410
+  Horizon 10: MAE=12.8857  RMSE=33.2896
+  Horizon 11: MAE=12.8371  RMSE=33.1036
+  Horizon 12: MAE=12.7525  RMSE=32.6127
+
+--- Subset split run 1 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.2326  RMSE=19.0043
+  Horizon  2: MAE=9.1057  RMSE=23.5079
+  Horizon  3: MAE=10.1384  RMSE=25.7234
+  Horizon  4: MAE=10.7132  RMSE=27.0158
+  Horizon  5: MAE=11.0138  RMSE=27.8348
+  Horizon  6: MAE=11.1075  RMSE=27.9906
+  Horizon  7: MAE=11.1143  RMSE=27.6423
+  Horizon  8: MAE=11.0681  RMSE=27.2484
+  Horizon  9: MAE=11.0698  RMSE=27.2177
+  Horizon 10: MAE=11.1229  RMSE=27.2188
+  Horizon 11: MAE=11.1236  RMSE=27.1405
+  Horizon 12: MAE=11.0350  RMSE=26.7238
+
+--- Subset split run 2 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.6035  RMSE=19.4086
+  Horizon  2: MAE=9.5288  RMSE=23.9714
+  Horizon  3: MAE=10.5975  RMSE=25.9635
+  Horizon  4: MAE=11.2032  RMSE=27.0035
+  Horizon  5: MAE=11.5869  RMSE=27.6160
+  Horizon  6: MAE=11.7309  RMSE=27.8480
+  Horizon  7: MAE=11.8516  RMSE=27.9697
+  Horizon  8: MAE=11.8912  RMSE=27.9223
+  Horizon  9: MAE=11.8817  RMSE=27.8918
+  Horizon 10: MAE=11.8354  RMSE=27.7133
+  Horizon 11: MAE=11.7798  RMSE=27.5109
+  Horizon 12: MAE=11.7307  RMSE=27.3737
+
+--- Subset split run 3 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.7020  RMSE=19.8450
+  Horizon  2: MAE=9.5800  RMSE=24.2022
+  Horizon  3: MAE=10.5598  RMSE=25.9968
+  Horizon  4: MAE=11.1225  RMSE=26.8766
+  Horizon  5: MAE=11.4275  RMSE=27.2129
+  Horizon  6: MAE=11.5256  RMSE=27.3320
+  Horizon  7: MAE=11.5454  RMSE=27.3895
+  Horizon  8: MAE=11.5899  RMSE=27.3667
+  Horizon  9: MAE=11.6481  RMSE=27.4812
+  Horizon 10: MAE=11.7174  RMSE=27.7273
+  Horizon 11: MAE=11.7475  RMSE=27.9420
+  Horizon 12: MAE=11.7119  RMSE=27.7859
+
+--- Subset split run 4 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.5046  RMSE=19.5422
+  Horizon  2: MAE=9.2662  RMSE=23.8540
+  Horizon  3: MAE=10.1642  RMSE=25.3113
+  Horizon  4: MAE=10.7405  RMSE=26.4172
+  Horizon  5: MAE=11.0618  RMSE=26.8963
+  Horizon  6: MAE=11.1435  RMSE=26.9419
+  Horizon  7: MAE=11.2026  RMSE=27.0509
+  Horizon  8: MAE=11.3016  RMSE=27.2146
+  Horizon  9: MAE=11.4125  RMSE=27.5001
+  Horizon 10: MAE=11.4094  RMSE=27.5918
+  Horizon 11: MAE=11.3142  RMSE=27.4417
+  Horizon 12: MAE=11.2019  RMSE=27.1416
+
+--- Subset split run 5 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.4553  RMSE=23.0932
+  Horizon  2: MAE=10.6710  RMSE=29.5822
+  Horizon  3: MAE=11.7770  RMSE=32.2698
+  Horizon  4: MAE=12.4343  RMSE=33.6242
+  Horizon  5: MAE=12.7999  RMSE=34.3140
+  Horizon  6: MAE=12.9333  RMSE=34.5889
+  Horizon  7: MAE=13.0015  RMSE=34.7099
+  Horizon  8: MAE=13.0396  RMSE=34.6516
+  Horizon  9: MAE=13.0840  RMSE=34.6651
+  Horizon 10: MAE=13.0341  RMSE=34.5733
+  Horizon 11: MAE=12.9947  RMSE=34.5224
+  Horizon 12: MAE=12.9759  RMSE=34.4926
+
+--- Subset split run 6 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.7900  RMSE=20.3149
+  Horizon  2: MAE=9.8389  RMSE=25.1665
+  Horizon  3: MAE=10.9639  RMSE=27.1351
+  Horizon  4: MAE=11.7687  RMSE=28.6026
+  Horizon  5: MAE=12.2780  RMSE=29.4158
+  Horizon  6: MAE=12.4720  RMSE=29.7139
+  Horizon  7: MAE=12.5290  RMSE=29.7095
+  Horizon  8: MAE=12.4551  RMSE=29.5296
+  Horizon  9: MAE=12.4239  RMSE=29.5954
+  Horizon 10: MAE=12.4082  RMSE=29.6625
+  Horizon 11: MAE=12.3164  RMSE=29.5286
+  Horizon 12: MAE=12.1365  RMSE=29.1606
+
+--- Subset split run 7 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.1647  RMSE=20.7213
+  Horizon  2: MAE=10.1534  RMSE=25.2817
+  Horizon  3: MAE=11.2662  RMSE=27.2169
+  Horizon  4: MAE=12.0338  RMSE=28.6473
+  Horizon  5: MAE=12.5362  RMSE=29.5731
+  Horizon  6: MAE=12.7311  RMSE=29.9810
+  Horizon  7: MAE=12.7994  RMSE=30.1058
+  Horizon  8: MAE=12.7576  RMSE=29.9517
+  Horizon  9: MAE=12.7028  RMSE=29.8779
+  Horizon 10: MAE=12.6686  RMSE=29.8397
+  Horizon 11: MAE=12.5340  RMSE=29.6538
+  Horizon 12: MAE=12.4601  RMSE=29.4717
+
+--- Subset split run 8 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.0088  RMSE=22.3204
+  Horizon  2: MAE=10.1135  RMSE=28.6785
+  Horizon  3: MAE=11.2354  RMSE=31.3946
+  Horizon  4: MAE=11.9203  RMSE=32.9024
+  Horizon  5: MAE=12.3321  RMSE=33.9198
+  Horizon  6: MAE=12.4688  RMSE=34.1946
+  Horizon  7: MAE=12.4908  RMSE=34.0201
+  Horizon  8: MAE=12.4295  RMSE=33.8610
+  Horizon  9: MAE=12.4385  RMSE=33.8971
+  Horizon 10: MAE=12.4458  RMSE=33.8809
+  Horizon 11: MAE=12.4144  RMSE=33.6648
+  Horizon 12: MAE=12.2883  RMSE=33.1895
+
+--- Subset split run 9 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.6771  RMSE=19.6694
+  Horizon  2: MAE=9.5770  RMSE=24.1303
+  Horizon  3: MAE=10.5650  RMSE=26.0500
+  Horizon  4: MAE=11.2176  RMSE=27.2831
+  Horizon  5: MAE=11.6788  RMSE=28.1494
+  Horizon  6: MAE=11.9105  RMSE=28.5661
+  Horizon  7: MAE=12.0461  RMSE=28.8133
+  Horizon  8: MAE=12.0581  RMSE=28.8374
+  Horizon  9: MAE=12.0696  RMSE=29.0117
+  Horizon 10: MAE=12.0579  RMSE=28.9926
+  Horizon 11: MAE=11.9918  RMSE=28.8488
+  Horizon 12: MAE=11.9086  RMSE=28.5088
+
+--- Subset split run 10 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.8639  RMSE=20.0580
+  Horizon  2: MAE=9.7661  RMSE=24.4718
+  Horizon  3: MAE=10.7794  RMSE=26.3033
+  Horizon  4: MAE=11.3770  RMSE=27.2792
+  Horizon  5: MAE=11.7007  RMSE=27.7249
+  Horizon  6: MAE=11.8119  RMSE=27.8921
+  Horizon  7: MAE=11.8851  RMSE=28.0390
+  Horizon  8: MAE=11.8821  RMSE=28.1180
+  Horizon  9: MAE=11.9146  RMSE=28.2107
+  Horizon 10: MAE=11.9078  RMSE=28.1195
+  Horizon 11: MAE=11.8515  RMSE=27.9476
+  Horizon 12: MAE=11.7684  RMSE=27.6781
+
+--- Subset split run 11 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.8826  RMSE=20.0694
+  Horizon  2: MAE=9.8368  RMSE=24.4426
+  Horizon  3: MAE=10.9154  RMSE=26.2947
+  Horizon  4: MAE=11.6024  RMSE=27.4609
+  Horizon  5: MAE=11.9869  RMSE=28.1341
+  Horizon  6: MAE=12.1835  RMSE=28.4456
+  Horizon  7: MAE=12.2813  RMSE=28.6723
+  Horizon  8: MAE=12.2873  RMSE=28.6017
+  Horizon  9: MAE=12.2741  RMSE=28.5730
+  Horizon 10: MAE=12.2305  RMSE=28.5221
+  Horizon 11: MAE=12.1619  RMSE=28.4750
+  Horizon 12: MAE=12.0564  RMSE=28.2374
+
+--- Subset split run 12 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.1155  RMSE=21.9006
+  Horizon  2: MAE=10.0868  RMSE=27.9275
+  Horizon  3: MAE=10.9813  RMSE=30.0582
+  Horizon  4: MAE=11.4621  RMSE=30.8778
+  Horizon  5: MAE=11.7291  RMSE=31.2415
+  Horizon  6: MAE=11.8309  RMSE=31.3515
+  Horizon  7: MAE=11.8918  RMSE=31.5357
+  Horizon  8: MAE=11.9509  RMSE=31.6274
+  Horizon  9: MAE=12.0935  RMSE=31.8603
+  Horizon 10: MAE=12.1362  RMSE=31.9544
+  Horizon 11: MAE=12.1321  RMSE=31.9662
+  Horizon 12: MAE=12.0698  RMSE=31.7228
+
+--- Subset split run 13 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.9970  RMSE=19.3605
+  Horizon  2: MAE=10.0829  RMSE=23.8830
+  Horizon  3: MAE=11.2542  RMSE=25.8838
+  Horizon  4: MAE=12.0087  RMSE=27.2457
+  Horizon  5: MAE=12.3157  RMSE=27.7469
+  Horizon  6: MAE=12.3822  RMSE=27.8667
+  Horizon  7: MAE=12.4400  RMSE=27.9206
+  Horizon  8: MAE=12.4901  RMSE=27.9444
+  Horizon  9: MAE=12.4838  RMSE=27.9736
+  Horizon 10: MAE=12.4508  RMSE=27.8966
+  Horizon 11: MAE=12.3980  RMSE=27.7246
+  Horizon 12: MAE=12.3818  RMSE=27.6817
+
+--- Subset split run 14 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=6.8370  RMSE=17.5038
+  Horizon  2: MAE=8.4869  RMSE=21.4110
+  Horizon  3: MAE=9.4194  RMSE=23.1133
+  Horizon  4: MAE=9.9452  RMSE=24.0336
+  Horizon  5: MAE=10.2322  RMSE=24.4462
+  Horizon  6: MAE=10.3508  RMSE=24.5945
+  Horizon  7: MAE=10.4536  RMSE=24.6663
+  Horizon  8: MAE=10.4670  RMSE=24.6100
+  Horizon  9: MAE=10.5074  RMSE=24.7842
+  Horizon 10: MAE=10.4991  RMSE=24.8033
+  Horizon 11: MAE=10.4208  RMSE=24.6453
+  Horizon 12: MAE=10.3185  RMSE=24.3544
+
+--- Subset split run 15 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.5075  RMSE=20.9671
+  Horizon  2: MAE=10.5727  RMSE=25.7037
+  Horizon  3: MAE=11.5854  RMSE=27.4352
+  Horizon  4: MAE=12.1413  RMSE=28.3198
+  Horizon  5: MAE=12.4851  RMSE=28.7891
+  Horizon  6: MAE=12.6323  RMSE=29.0586
+  Horizon  7: MAE=12.7606  RMSE=29.3741
+  Horizon  8: MAE=12.8148  RMSE=29.4915
+  Horizon  9: MAE=12.9026  RMSE=29.7453
+  Horizon 10: MAE=12.9247  RMSE=29.8630
+  Horizon 11: MAE=12.8777  RMSE=29.8152
+  Horizon 12: MAE=12.8031  RMSE=29.5674
+
+--- Subset split run 16 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.5036  RMSE=22.8007
+  Horizon  2: MAE=10.6537  RMSE=29.2085
+  Horizon  3: MAE=11.8053  RMSE=31.9518
+  Horizon  4: MAE=12.5294  RMSE=33.5408
+  Horizon  5: MAE=12.9515  RMSE=34.4696
+  Horizon  6: MAE=13.0940  RMSE=34.7006
+  Horizon  7: MAE=13.1378  RMSE=34.5414
+  Horizon  8: MAE=13.1355  RMSE=34.3784
+  Horizon  9: MAE=13.1240  RMSE=34.4112
+  Horizon 10: MAE=13.0548  RMSE=34.2992
+  Horizon 11: MAE=12.9967  RMSE=34.0798
+  Horizon 12: MAE=12.9494  RMSE=33.7384
+
+--- Subset split run 17 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.3744  RMSE=18.3144
+  Horizon  2: MAE=9.2351  RMSE=22.2979
+  Horizon  3: MAE=10.2702  RMSE=23.9256
+  Horizon  4: MAE=10.8650  RMSE=24.8568
+  Horizon  5: MAE=11.1786  RMSE=25.3389
+  Horizon  6: MAE=11.2847  RMSE=25.4419
+  Horizon  7: MAE=11.4153  RMSE=25.5933
+  Horizon  8: MAE=11.4963  RMSE=25.6936
+  Horizon  9: MAE=11.6085  RMSE=25.9385
+  Horizon 10: MAE=11.6861  RMSE=26.1668
+  Horizon 11: MAE=11.6768  RMSE=26.1789
+  Horizon 12: MAE=11.5907  RMSE=25.9010
+
+--- Subset split run 18 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.8588  RMSE=19.6668
+  Horizon  2: MAE=9.9774  RMSE=24.4811
+  Horizon  3: MAE=11.0353  RMSE=26.4265
+  Horizon  4: MAE=11.6656  RMSE=27.5689
+  Horizon  5: MAE=12.0549  RMSE=28.3237
+  Horizon  6: MAE=12.2388  RMSE=28.7601
+  Horizon  7: MAE=12.3366  RMSE=29.0185
+  Horizon  8: MAE=12.3701  RMSE=29.0253
+  Horizon  9: MAE=12.4256  RMSE=29.1758
+  Horizon 10: MAE=12.4040  RMSE=29.1758
+  Horizon 11: MAE=12.3309  RMSE=29.1523
+  Horizon 12: MAE=12.2392  RMSE=28.8640
+
+--- Subset split run 19 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.7010  RMSE=19.1941
+  Horizon  2: MAE=9.5190  RMSE=23.3211
+  Horizon  3: MAE=10.4926  RMSE=25.0146
+  Horizon  4: MAE=11.1211  RMSE=26.0772
+  Horizon  5: MAE=11.4882  RMSE=26.6963
+  Horizon  6: MAE=11.6354  RMSE=26.9402
+  Horizon  7: MAE=11.7067  RMSE=27.0452
+  Horizon  8: MAE=11.6915  RMSE=27.0126
+  Horizon  9: MAE=11.7026  RMSE=27.0489
+  Horizon 10: MAE=11.7178  RMSE=27.0509
+  Horizon 11: MAE=11.6925  RMSE=27.0636
+  Horizon 12: MAE=11.6354  RMSE=26.8691
+Shape of  train  input =  (12265, 12, 862, 1)
+Shape of  val  input =  (1752, 12, 862, 1)
+Shape of  test  input =  (3504, 12, 862, 1)
+Number of variables/nodes = 862
+Receptive field: 19
+Parameters: 1336924
+
+Model loaded from ./saved_models/mtgnn/TRAFFIC/exp1_1.pth
+
+Number of prototypes = 12265
+[Prototype bank] shape = torch.Size([12265, 1, 862, 12])
+
+--- Subset split run 0 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.9989  RMSE=20.7076
+  Horizon  2: MAE=10.1031  RMSE=25.4311
+  Horizon  3: MAE=11.2635  RMSE=27.5754
+  Horizon  4: MAE=11.9264  RMSE=28.7846
+  Horizon  5: MAE=12.2140  RMSE=29.3212
+  Horizon  6: MAE=12.3107  RMSE=29.4175
+  Horizon  7: MAE=12.3069  RMSE=29.3110
+  Horizon  8: MAE=12.3734  RMSE=29.3096
+  Horizon  9: MAE=12.3923  RMSE=29.4341
+  Horizon 10: MAE=12.3222  RMSE=29.3035
+  Horizon 11: MAE=12.2320  RMSE=29.0593
+  Horizon 12: MAE=12.2865  RMSE=29.0064
+
+--- Subset split run 1 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.2768  RMSE=23.2612
+  Horizon  2: MAE=10.4832  RMSE=29.5459
+  Horizon  3: MAE=11.5704  RMSE=31.5702
+  Horizon  4: MAE=12.1635  RMSE=32.6739
+  Horizon  5: MAE=12.3777  RMSE=33.0550
+  Horizon  6: MAE=12.4339  RMSE=33.1582
+  Horizon  7: MAE=12.4376  RMSE=33.2122
+  Horizon  8: MAE=12.4623  RMSE=33.2888
+  Horizon  9: MAE=12.4894  RMSE=33.4610
+  Horizon 10: MAE=12.4349  RMSE=33.4564
+  Horizon 11: MAE=12.3922  RMSE=33.4308
+  Horizon 12: MAE=12.5451  RMSE=33.5947
+
+--- Subset split run 2 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.9744  RMSE=20.7902
+  Horizon  2: MAE=9.8733  RMSE=25.3714
+  Horizon  3: MAE=10.8012  RMSE=27.2766
+  Horizon  4: MAE=11.3912  RMSE=28.4195
+  Horizon  5: MAE=11.7230  RMSE=28.9410
+  Horizon  6: MAE=11.8804  RMSE=29.0159
+  Horizon  7: MAE=11.9792  RMSE=29.0312
+  Horizon  8: MAE=12.0406  RMSE=29.0922
+  Horizon  9: MAE=12.0904  RMSE=29.2216
+  Horizon 10: MAE=12.0380  RMSE=29.1529
+  Horizon 11: MAE=11.9482  RMSE=28.8093
+  Horizon 12: MAE=11.9820  RMSE=28.6857
+
+--- Subset split run 3 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.2437  RMSE=21.1523
+  Horizon  2: MAE=10.4665  RMSE=26.5131
+  Horizon  3: MAE=11.6561  RMSE=28.8715
+  Horizon  4: MAE=12.3901  RMSE=30.3962
+  Horizon  5: MAE=12.7030  RMSE=31.0232
+  Horizon  6: MAE=12.7939  RMSE=31.2523
+  Horizon  7: MAE=12.8333  RMSE=31.3698
+  Horizon  8: MAE=12.8540  RMSE=31.4386
+  Horizon  9: MAE=12.8353  RMSE=31.4126
+  Horizon 10: MAE=12.8360  RMSE=31.4302
+  Horizon 11: MAE=12.8123  RMSE=31.3455
+  Horizon 12: MAE=12.9353  RMSE=31.5320
+
+--- Subset split run 4 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.3626  RMSE=21.1130
+  Horizon  2: MAE=10.2479  RMSE=25.4784
+  Horizon  3: MAE=11.2195  RMSE=27.2187
+  Horizon  4: MAE=11.9103  RMSE=28.4139
+  Horizon  5: MAE=12.2933  RMSE=28.9322
+  Horizon  6: MAE=12.4640  RMSE=29.0940
+  Horizon  7: MAE=12.5499  RMSE=29.0310
+  Horizon  8: MAE=12.5606  RMSE=28.8519
+  Horizon  9: MAE=12.6122  RMSE=28.9622
+  Horizon 10: MAE=12.5863  RMSE=29.0255
+  Horizon 11: MAE=12.4779  RMSE=29.0020
+  Horizon 12: MAE=12.4907  RMSE=28.9748
+
+--- Subset split run 5 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.5414  RMSE=19.4381
+  Horizon  2: MAE=9.3310  RMSE=23.5785
+  Horizon  3: MAE=10.1486  RMSE=24.9172
+  Horizon  4: MAE=10.6204  RMSE=25.6640
+  Horizon  5: MAE=10.8515  RMSE=25.9220
+  Horizon  6: MAE=10.9993  RMSE=26.0831
+  Horizon  7: MAE=11.1511  RMSE=26.2415
+  Horizon  8: MAE=11.2474  RMSE=26.3011
+  Horizon  9: MAE=11.3303  RMSE=26.5274
+  Horizon 10: MAE=11.3308  RMSE=26.5501
+  Horizon 11: MAE=11.2228  RMSE=26.4191
+  Horizon 12: MAE=11.2302  RMSE=26.3905
+
+--- Subset split run 6 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.9356  RMSE=20.2383
+  Horizon  2: MAE=9.8657  RMSE=24.5548
+  Horizon  3: MAE=10.9123  RMSE=26.2889
+  Horizon  4: MAE=11.6060  RMSE=27.4660
+  Horizon  5: MAE=11.9018  RMSE=27.8736
+  Horizon  6: MAE=12.0195  RMSE=27.9646
+  Horizon  7: MAE=12.0977  RMSE=28.0542
+  Horizon  8: MAE=12.1276  RMSE=27.9908
+  Horizon  9: MAE=12.1656  RMSE=28.0768
+  Horizon 10: MAE=12.1368  RMSE=28.0243
+  Horizon 11: MAE=12.0519  RMSE=27.9263
+  Horizon 12: MAE=12.1133  RMSE=28.0628
+
+--- Subset split run 7 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.9623  RMSE=20.4980
+  Horizon  2: MAE=9.7959  RMSE=24.5602
+  Horizon  3: MAE=10.7322  RMSE=26.0166
+  Horizon  4: MAE=11.3516  RMSE=26.9920
+  Horizon  5: MAE=11.7064  RMSE=27.4680
+  Horizon  6: MAE=11.8658  RMSE=27.5922
+  Horizon  7: MAE=11.9448  RMSE=27.6725
+  Horizon  8: MAE=11.9736  RMSE=27.7003
+  Horizon  9: MAE=11.9455  RMSE=27.7370
+  Horizon 10: MAE=11.8603  RMSE=27.6515
+  Horizon 11: MAE=11.7297  RMSE=27.4471
+  Horizon 12: MAE=11.6587  RMSE=27.3387
+
+--- Subset split run 8 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.1440  RMSE=21.1381
+  Horizon  2: MAE=10.1743  RMSE=26.2567
+  Horizon  3: MAE=11.1895  RMSE=28.3392
+  Horizon  4: MAE=11.8245  RMSE=29.6084
+  Horizon  5: MAE=12.1747  RMSE=30.2643
+  Horizon  6: MAE=12.3028  RMSE=30.4873
+  Horizon  7: MAE=12.3698  RMSE=30.5388
+  Horizon  8: MAE=12.3586  RMSE=30.5476
+  Horizon  9: MAE=12.3745  RMSE=30.7636
+  Horizon 10: MAE=12.3782  RMSE=30.9886
+  Horizon 11: MAE=12.3444  RMSE=31.0411
+  Horizon 12: MAE=12.4778  RMSE=31.2442
+
+--- Subset split run 9 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.8543  RMSE=23.0934
+  Horizon  2: MAE=9.9010  RMSE=29.3249
+  Horizon  3: MAE=10.9606  RMSE=31.2244
+  Horizon  4: MAE=11.5633  RMSE=32.2830
+  Horizon  5: MAE=11.8554  RMSE=32.7084
+  Horizon  6: MAE=11.9742  RMSE=32.8013
+  Horizon  7: MAE=11.9862  RMSE=32.8088
+  Horizon  8: MAE=11.9873  RMSE=32.7430
+  Horizon  9: MAE=12.0071  RMSE=32.8490
+  Horizon 10: MAE=11.9606  RMSE=32.9464
+  Horizon 11: MAE=11.8833  RMSE=32.7690
+  Horizon 12: MAE=11.9755  RMSE=32.7858
+
+--- Subset split run 10 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.6262  RMSE=19.0309
+  Horizon  2: MAE=9.6029  RMSE=23.2662
+  Horizon  3: MAE=10.7499  RMSE=25.2199
+  Horizon  4: MAE=11.5537  RMSE=26.7067
+  Horizon  5: MAE=11.9830  RMSE=27.5515
+  Horizon  6: MAE=12.1757  RMSE=27.8342
+  Horizon  7: MAE=12.2144  RMSE=27.8915
+  Horizon  8: MAE=12.2423  RMSE=27.7299
+  Horizon  9: MAE=12.2396  RMSE=27.7716
+  Horizon 10: MAE=12.1353  RMSE=27.6617
+  Horizon 11: MAE=11.9387  RMSE=27.3178
+  Horizon 12: MAE=11.8167  RMSE=26.9570
+
+--- Subset split run 11 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.9165  RMSE=19.7848
+  Horizon  2: MAE=9.8090  RMSE=23.8149
+  Horizon  3: MAE=10.8066  RMSE=25.4206
+  Horizon  4: MAE=11.4374  RMSE=26.4675
+  Horizon  5: MAE=11.7178  RMSE=26.8887
+  Horizon  6: MAE=11.8228  RMSE=26.8978
+  Horizon  7: MAE=11.8717  RMSE=26.8721
+  Horizon  8: MAE=11.9290  RMSE=26.8738
+  Horizon  9: MAE=11.9727  RMSE=27.0019
+  Horizon 10: MAE=11.9033  RMSE=26.9150
+  Horizon 11: MAE=11.8188  RMSE=26.7948
+  Horizon 12: MAE=11.9492  RMSE=26.9495
+
+--- Subset split run 12 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.7532  RMSE=19.9466
+  Horizon  2: MAE=9.8298  RMSE=24.5002
+  Horizon  3: MAE=11.0357  RMSE=26.6506
+  Horizon  4: MAE=11.7996  RMSE=28.0800
+  Horizon  5: MAE=12.1080  RMSE=28.5654
+  Horizon  6: MAE=12.2015  RMSE=28.6440
+  Horizon  7: MAE=12.2446  RMSE=28.8156
+  Horizon  8: MAE=12.3195  RMSE=29.0706
+  Horizon  9: MAE=12.2972  RMSE=29.1080
+  Horizon 10: MAE=12.1413  RMSE=28.7525
+  Horizon 11: MAE=11.9217  RMSE=28.1668
+  Horizon 12: MAE=11.9433  RMSE=28.0489
+
+--- Subset split run 13 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.1804  RMSE=18.1810
+  Horizon  2: MAE=8.9373  RMSE=22.0992
+  Horizon  3: MAE=9.9141  RMSE=23.7342
+  Horizon  4: MAE=10.6355  RMSE=25.0072
+  Horizon  5: MAE=11.0528  RMSE=25.7300
+  Horizon  6: MAE=11.1513  RMSE=25.8220
+  Horizon  7: MAE=11.1438  RMSE=25.7479
+  Horizon  8: MAE=11.0492  RMSE=25.4995
+  Horizon  9: MAE=10.9661  RMSE=25.2956
+  Horizon 10: MAE=10.8967  RMSE=25.1767
+  Horizon 11: MAE=10.7496  RMSE=24.9738
+  Horizon 12: MAE=10.7751  RMSE=24.9072
+
+--- Subset split run 14 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.6092  RMSE=19.2015
+  Horizon  2: MAE=9.4600  RMSE=23.4449
+  Horizon  3: MAE=10.3796  RMSE=25.0108
+  Horizon  4: MAE=10.9074  RMSE=25.9370
+  Horizon  5: MAE=11.1620  RMSE=26.3571
+  Horizon  6: MAE=11.2653  RMSE=26.3856
+  Horizon  7: MAE=11.3351  RMSE=26.4735
+  Horizon  8: MAE=11.3915  RMSE=26.4846
+  Horizon  9: MAE=11.4473  RMSE=26.6242
+  Horizon 10: MAE=11.3932  RMSE=26.5413
+  Horizon 11: MAE=11.2336  RMSE=26.3351
+  Horizon 12: MAE=11.2597  RMSE=26.2411
+
+--- Subset split run 15 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.2080  RMSE=20.9567
+  Horizon  2: MAE=10.2063  RMSE=25.6419
+  Horizon  3: MAE=11.1800  RMSE=27.3061
+  Horizon  4: MAE=11.7551  RMSE=28.2725
+  Horizon  5: MAE=12.0406  RMSE=28.6279
+  Horizon  6: MAE=12.2160  RMSE=28.8208
+  Horizon  7: MAE=12.3531  RMSE=28.9055
+  Horizon  8: MAE=12.4170  RMSE=28.9570
+  Horizon  9: MAE=12.4785  RMSE=29.1060
+  Horizon 10: MAE=12.4370  RMSE=29.0561
+  Horizon 11: MAE=12.3580  RMSE=28.9444
+  Horizon 12: MAE=12.4631  RMSE=29.1036
+
+--- Subset split run 16 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.9173  RMSE=21.6618
+  Horizon  2: MAE=11.0568  RMSE=26.2896
+  Horizon  3: MAE=12.0865  RMSE=28.0410
+  Horizon  4: MAE=12.6953  RMSE=29.1087
+  Horizon  5: MAE=12.9531  RMSE=29.5679
+  Horizon  6: MAE=13.0602  RMSE=29.7226
+  Horizon  7: MAE=13.1426  RMSE=29.8444
+  Horizon  8: MAE=13.1999  RMSE=29.9338
+  Horizon  9: MAE=13.2605  RMSE=30.1349
+  Horizon 10: MAE=13.2421  RMSE=30.0578
+  Horizon 11: MAE=13.1599  RMSE=29.8193
+  Horizon 12: MAE=13.2409  RMSE=29.7457
+
+--- Subset split run 17 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.6115  RMSE=21.8265
+  Horizon  2: MAE=10.7435  RMSE=26.6889
+  Horizon  3: MAE=11.7490  RMSE=28.4075
+  Horizon  4: MAE=12.2830  RMSE=29.3083
+  Horizon  5: MAE=12.5274  RMSE=29.6713
+  Horizon  6: MAE=12.6258  RMSE=29.7662
+  Horizon  7: MAE=12.7255  RMSE=29.8730
+  Horizon  8: MAE=12.7594  RMSE=29.9246
+  Horizon  9: MAE=12.8096  RMSE=30.1099
+  Horizon 10: MAE=12.7680  RMSE=30.1328
+  Horizon 11: MAE=12.7381  RMSE=30.1080
+  Horizon 12: MAE=12.7751  RMSE=30.1818
+
+--- Subset split run 18 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.8766  RMSE=20.3572
+  Horizon  2: MAE=9.7838  RMSE=24.8500
+  Horizon  3: MAE=10.7707  RMSE=26.4528
+  Horizon  4: MAE=11.4485  RMSE=27.5106
+  Horizon  5: MAE=11.8077  RMSE=27.9170
+  Horizon  6: MAE=11.9683  RMSE=28.0941
+  Horizon  7: MAE=12.0344  RMSE=28.1147
+  Horizon  8: MAE=12.0813  RMSE=28.1852
+  Horizon  9: MAE=12.0719  RMSE=28.2915
+  Horizon 10: MAE=11.9804  RMSE=28.1694
+  Horizon 11: MAE=11.8846  RMSE=28.0305
+  Horizon 12: MAE=11.9960  RMSE=28.2266
+
+--- Subset split run 19 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.0328  RMSE=19.7863
+  Horizon  2: MAE=10.0556  RMSE=24.2203
+  Horizon  3: MAE=11.1392  RMSE=26.2808
+  Horizon  4: MAE=11.7323  RMSE=27.3932
+  Horizon  5: MAE=12.0055  RMSE=27.8750
+  Horizon  6: MAE=12.1375  RMSE=28.0552
+  Horizon  7: MAE=12.2098  RMSE=28.1580
+  Horizon  8: MAE=12.2505  RMSE=28.2664
+  Horizon  9: MAE=12.2050  RMSE=28.3124
+  Horizon 10: MAE=12.0686  RMSE=28.1872
+  Horizon 11: MAE=11.9603  RMSE=28.0084
+  Horizon 12: MAE=12.0005  RMSE=27.9613
+Shape of  train  input =  (12265, 12, 862, 1)
+Shape of  val  input =  (1752, 12, 862, 1)
+Shape of  test  input =  (3504, 12, 862, 1)
+Number of variables/nodes = 862
+Receptive field: 19
+Parameters: 1336924
+
+Model loaded from ./saved_models/mtgnn/TRAFFIC/exp1_2.pth
+
+Number of prototypes = 12265
+[Prototype bank] shape = torch.Size([12265, 1, 862, 12])
+
+--- Subset split run 0 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.2667  RMSE=21.2243
+  Horizon  2: MAE=10.5059  RMSE=26.1271
+  Horizon  3: MAE=11.7209  RMSE=28.1758
+  Horizon  4: MAE=12.5891  RMSE=29.7094
+  Horizon  5: MAE=12.8071  RMSE=29.9375
+  Horizon  6: MAE=12.7190  RMSE=29.5962
+  Horizon  7: MAE=12.7114  RMSE=29.5239
+  Horizon  8: MAE=12.7466  RMSE=29.5605
+  Horizon  9: MAE=12.8712  RMSE=29.6518
+  Horizon 10: MAE=12.9280  RMSE=29.8490
+  Horizon 11: MAE=12.9044  RMSE=29.9633
+  Horizon 12: MAE=12.8899  RMSE=29.9446
+
+--- Subset split run 1 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.1143  RMSE=20.6804
+  Horizon  2: MAE=10.2079  RMSE=25.5793
+  Horizon  3: MAE=11.3892  RMSE=27.6802
+  Horizon  4: MAE=12.2048  RMSE=29.3648
+  Horizon  5: MAE=12.5430  RMSE=29.8088
+  Horizon  6: MAE=12.5491  RMSE=29.5545
+  Horizon  7: MAE=12.5697  RMSE=29.4684
+  Horizon  8: MAE=12.5414  RMSE=29.3641
+  Horizon  9: MAE=12.5172  RMSE=29.2635
+  Horizon 10: MAE=12.4615  RMSE=29.2885
+  Horizon 11: MAE=12.3977  RMSE=29.3882
+  Horizon 12: MAE=12.3985  RMSE=29.3876
+
+--- Subset split run 2 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.0402  RMSE=22.0711
+  Horizon  2: MAE=10.1436  RMSE=28.0621
+  Horizon  3: MAE=11.2172  RMSE=30.2882
+  Horizon  4: MAE=11.9141  RMSE=31.5138
+  Horizon  5: MAE=12.1641  RMSE=31.6885
+  Horizon  6: MAE=12.1441  RMSE=31.4712
+  Horizon  7: MAE=12.1333  RMSE=31.4695
+  Horizon  8: MAE=12.1973  RMSE=31.6481
+  Horizon  9: MAE=12.2271  RMSE=31.6335
+  Horizon 10: MAE=12.1961  RMSE=31.6380
+  Horizon 11: MAE=12.1539  RMSE=31.6792
+  Horizon 12: MAE=12.0923  RMSE=31.3211
+
+--- Subset split run 3 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.1830  RMSE=20.6727
+  Horizon  2: MAE=10.3425  RMSE=25.5919
+  Horizon  3: MAE=11.4927  RMSE=27.6417
+  Horizon  4: MAE=12.2520  RMSE=28.8861
+  Horizon  5: MAE=12.5863  RMSE=29.2677
+  Horizon  6: MAE=12.6102  RMSE=29.1402
+  Horizon  7: MAE=12.6103  RMSE=29.0889
+  Horizon  8: MAE=12.5934  RMSE=29.0834
+  Horizon  9: MAE=12.5977  RMSE=29.0949
+  Horizon 10: MAE=12.5757  RMSE=29.2119
+  Horizon 11: MAE=12.5639  RMSE=29.3708
+  Horizon 12: MAE=12.5833  RMSE=29.3632
+
+--- Subset split run 4 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.3160  RMSE=21.7747
+  Horizon  2: MAE=10.2938  RMSE=26.2284
+  Horizon  3: MAE=11.3202  RMSE=28.0142
+  Horizon  4: MAE=11.9760  RMSE=29.1864
+  Horizon  5: MAE=12.1616  RMSE=29.3819
+  Horizon  6: MAE=12.0627  RMSE=29.0405
+  Horizon  7: MAE=12.0819  RMSE=29.0262
+  Horizon  8: MAE=12.2329  RMSE=29.3923
+  Horizon  9: MAE=12.3700  RMSE=29.6551
+  Horizon 10: MAE=12.4481  RMSE=29.8772
+  Horizon 11: MAE=12.3914  RMSE=29.9673
+  Horizon 12: MAE=12.3282  RMSE=29.7041
+
+--- Subset split run 5 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.7499  RMSE=19.4010
+  Horizon  2: MAE=9.7092  RMSE=23.7115
+  Horizon  3: MAE=10.7960  RMSE=25.5423
+  Horizon  4: MAE=11.4943  RMSE=26.6061
+  Horizon  5: MAE=11.7789  RMSE=26.8459
+  Horizon  6: MAE=11.8185  RMSE=26.7323
+  Horizon  7: MAE=11.8750  RMSE=26.8270
+  Horizon  8: MAE=11.9732  RMSE=27.0090
+  Horizon  9: MAE=11.9985  RMSE=26.9582
+  Horizon 10: MAE=11.9359  RMSE=26.8768
+  Horizon 11: MAE=11.8977  RMSE=27.0084
+  Horizon 12: MAE=11.9808  RMSE=27.2256
+
+--- Subset split run 6 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.1297  RMSE=20.8706
+  Horizon  2: MAE=10.1600  RMSE=25.6241
+  Horizon  3: MAE=11.2459  RMSE=27.7888
+  Horizon  4: MAE=12.0539  RMSE=29.3761
+  Horizon  5: MAE=12.3319  RMSE=29.8399
+  Horizon  6: MAE=12.3670  RMSE=29.6999
+  Horizon  7: MAE=12.3928  RMSE=29.6774
+  Horizon  8: MAE=12.3321  RMSE=29.5002
+  Horizon  9: MAE=12.3022  RMSE=29.2561
+  Horizon 10: MAE=12.2631  RMSE=29.2309
+  Horizon 11: MAE=12.2378  RMSE=29.4089
+  Horizon 12: MAE=12.2698  RMSE=29.4878
+
+--- Subset split run 7 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.8529  RMSE=19.5769
+  Horizon  2: MAE=9.7546  RMSE=23.7548
+  Horizon  3: MAE=10.6879  RMSE=25.3601
+  Horizon  4: MAE=11.3080  RMSE=26.4784
+  Horizon  5: MAE=11.4575  RMSE=26.5737
+  Horizon  6: MAE=11.3677  RMSE=26.2277
+  Horizon  7: MAE=11.3745  RMSE=26.1667
+  Horizon  8: MAE=11.4002  RMSE=26.2470
+  Horizon  9: MAE=11.4675  RMSE=26.2446
+  Horizon 10: MAE=11.5175  RMSE=26.3521
+  Horizon 11: MAE=11.5206  RMSE=26.5081
+  Horizon 12: MAE=11.5668  RMSE=26.4986
+
+--- Subset split run 8 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.5801  RMSE=21.8372
+  Horizon  2: MAE=9.4689  RMSE=27.6747
+  Horizon  3: MAE=10.4093  RMSE=29.6694
+  Horizon  4: MAE=11.0619  RMSE=30.8259
+  Horizon  5: MAE=11.3259  RMSE=31.0824
+  Horizon  6: MAE=11.3355  RMSE=30.9196
+  Horizon  7: MAE=11.3402  RMSE=30.8937
+  Horizon  8: MAE=11.3637  RMSE=30.9711
+  Horizon  9: MAE=11.3981  RMSE=30.9361
+  Horizon 10: MAE=11.3799  RMSE=30.9724
+  Horizon 11: MAE=11.3080  RMSE=30.9977
+  Horizon 12: MAE=11.2093  RMSE=30.6309
+
+--- Subset split run 9 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.9088  RMSE=19.8077
+  Horizon  2: MAE=9.8908  RMSE=24.2703
+  Horizon  3: MAE=10.8698  RMSE=25.9567
+  Horizon  4: MAE=11.5821  RMSE=27.2614
+  Horizon  5: MAE=11.8464  RMSE=27.5659
+  Horizon  6: MAE=11.8295  RMSE=27.4050
+  Horizon  7: MAE=11.8789  RMSE=27.5295
+  Horizon  8: MAE=11.9152  RMSE=27.6829
+  Horizon  9: MAE=11.9988  RMSE=27.8036
+  Horizon 10: MAE=12.0024  RMSE=27.8981
+  Horizon 11: MAE=11.9419  RMSE=28.0238
+  Horizon 12: MAE=11.9787  RMSE=27.9902
+
+--- Subset split run 10 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.8319  RMSE=22.1154
+  Horizon  2: MAE=11.1905  RMSE=27.5863
+  Horizon  3: MAE=12.4509  RMSE=30.0673
+  Horizon  4: MAE=13.2533  RMSE=31.6345
+  Horizon  5: MAE=13.4650  RMSE=32.0100
+  Horizon  6: MAE=13.3829  RMSE=31.7424
+  Horizon  7: MAE=13.3763  RMSE=31.7732
+  Horizon  8: MAE=13.4597  RMSE=31.9849
+  Horizon  9: MAE=13.5407  RMSE=32.0641
+  Horizon 10: MAE=13.5566  RMSE=32.0440
+  Horizon 11: MAE=13.5403  RMSE=32.0568
+  Horizon 12: MAE=13.6163  RMSE=32.0795
+
+--- Subset split run 11 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.7377  RMSE=19.9820
+  Horizon  2: MAE=9.6605  RMSE=24.0983
+  Horizon  3: MAE=10.6667  RMSE=25.6428
+  Horizon  4: MAE=11.2893  RMSE=26.6917
+  Horizon  5: MAE=11.5750  RMSE=27.0521
+  Horizon  6: MAE=11.6422  RMSE=27.0190
+  Horizon  7: MAE=11.7695  RMSE=27.2121
+  Horizon  8: MAE=11.8311  RMSE=27.3300
+  Horizon  9: MAE=11.8436  RMSE=27.2917
+  Horizon 10: MAE=11.8001  RMSE=27.2732
+  Horizon 11: MAE=11.6559  RMSE=27.1545
+  Horizon 12: MAE=11.6201  RMSE=27.0251
+
+--- Subset split run 12 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.2641  RMSE=21.7957
+  Horizon  2: MAE=10.4152  RMSE=27.1694
+  Horizon  3: MAE=11.5584  RMSE=29.5731
+  Horizon  4: MAE=12.2664  RMSE=31.1965
+  Horizon  5: MAE=12.4107  RMSE=31.2572
+  Horizon  6: MAE=12.2968  RMSE=30.7399
+  Horizon  7: MAE=12.3176  RMSE=30.6694
+  Horizon  8: MAE=12.3504  RMSE=30.7056
+  Horizon  9: MAE=12.4197  RMSE=30.7028
+  Horizon 10: MAE=12.4550  RMSE=30.8124
+  Horizon 11: MAE=12.4370  RMSE=30.9551
+  Horizon 12: MAE=12.4847  RMSE=30.9408
+
+--- Subset split run 13 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.5319  RMSE=18.9916
+  Horizon  2: MAE=9.3912  RMSE=22.8926
+  Horizon  3: MAE=10.3462  RMSE=24.3734
+  Horizon  4: MAE=10.9525  RMSE=25.3319
+  Horizon  5: MAE=11.2090  RMSE=25.5726
+  Horizon  6: MAE=11.2678  RMSE=25.4690
+  Horizon  7: MAE=11.2834  RMSE=25.4639
+  Horizon  8: MAE=11.2881  RMSE=25.5527
+  Horizon  9: MAE=11.2932  RMSE=25.5151
+  Horizon 10: MAE=11.2555  RMSE=25.5986
+  Horizon 11: MAE=11.1693  RMSE=25.6160
+  Horizon 12: MAE=11.1230  RMSE=25.4947
+
+--- Subset split run 14 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.4149  RMSE=19.5242
+  Horizon  2: MAE=9.2403  RMSE=24.0812
+  Horizon  3: MAE=10.1585  RMSE=25.7570
+  Horizon  4: MAE=10.7896  RMSE=26.9509
+  Horizon  5: MAE=11.0243  RMSE=27.1775
+  Horizon  6: MAE=11.0692  RMSE=26.9926
+  Horizon  7: MAE=11.1315  RMSE=27.0594
+  Horizon  8: MAE=11.2035  RMSE=27.2164
+  Horizon  9: MAE=11.2350  RMSE=27.1211
+  Horizon 10: MAE=11.1846  RMSE=27.0693
+  Horizon 11: MAE=11.1611  RMSE=27.1378
+  Horizon 12: MAE=11.1982  RMSE=27.0930
+
+--- Subset split run 15 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.3062  RMSE=20.7369
+  Horizon  2: MAE=10.5014  RMSE=25.5187
+  Horizon  3: MAE=11.6720  RMSE=27.5788
+  Horizon  4: MAE=12.4310  RMSE=28.9863
+  Horizon  5: MAE=12.6766  RMSE=29.2684
+  Horizon  6: MAE=12.6834  RMSE=29.1594
+  Horizon  7: MAE=12.7086  RMSE=29.2343
+  Horizon  8: MAE=12.7822  RMSE=29.3799
+  Horizon  9: MAE=12.8017  RMSE=29.3333
+  Horizon 10: MAE=12.7566  RMSE=29.2407
+  Horizon 11: MAE=12.6747  RMSE=29.1641
+  Horizon 12: MAE=12.6315  RMSE=29.0663
+
+--- Subset split run 16 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.8437  RMSE=19.8510
+  Horizon  2: MAE=9.9188  RMSE=24.3592
+  Horizon  3: MAE=11.1292  RMSE=26.3977
+  Horizon  4: MAE=11.9627  RMSE=27.8291
+  Horizon  5: MAE=12.3757  RMSE=28.4099
+  Horizon  6: MAE=12.5295  RMSE=28.4571
+  Horizon  7: MAE=12.5443  RMSE=28.4377
+  Horizon  8: MAE=12.4569  RMSE=28.3348
+  Horizon  9: MAE=12.3389  RMSE=28.0918
+  Horizon 10: MAE=12.2261  RMSE=27.9652
+  Horizon 11: MAE=12.1319  RMSE=27.9563
+  Horizon 12: MAE=12.0793  RMSE=27.9458
+
+--- Subset split run 17 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=8.7070  RMSE=23.8846
+  Horizon  2: MAE=11.0615  RMSE=30.2881
+  Horizon  3: MAE=12.3321  RMSE=32.7646
+  Horizon  4: MAE=13.1077  RMSE=34.2120
+  Horizon  5: MAE=13.3997  RMSE=34.5008
+  Horizon  6: MAE=13.4214  RMSE=34.3331
+  Horizon  7: MAE=13.3733  RMSE=34.2354
+  Horizon  8: MAE=13.3149  RMSE=34.2046
+  Horizon  9: MAE=13.2824  RMSE=34.1700
+  Horizon 10: MAE=13.2534  RMSE=34.2802
+  Horizon 11: MAE=13.1923  RMSE=34.3410
+  Horizon 12: MAE=13.0995  RMSE=33.9138
+
+--- Subset split run 18 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.3573  RMSE=18.8096
+  Horizon  2: MAE=9.3126  RMSE=23.2103
+  Horizon  3: MAE=10.4054  RMSE=25.2741
+  Horizon  4: MAE=11.1865  RMSE=26.8089
+  Horizon  5: MAE=11.5577  RMSE=27.4984
+  Horizon  6: MAE=11.6732  RMSE=27.7065
+  Horizon  7: MAE=11.7162  RMSE=27.7145
+  Horizon  8: MAE=11.7145  RMSE=27.6206
+  Horizon  9: MAE=11.7357  RMSE=27.5773
+  Horizon 10: MAE=11.7024  RMSE=27.5493
+  Horizon 11: MAE=11.6572  RMSE=27.5047
+  Horizon 12: MAE=11.6463  RMSE=27.3216
+
+--- Subset split run 19 ---
+  Subset size: 130 / 862 (15.1%)
+  Horizon  1: MAE=7.3331  RMSE=18.9103
+  Horizon  2: MAE=9.1497  RMSE=23.1200
+  Horizon  3: MAE=10.1230  RMSE=24.7112
+  Horizon  4: MAE=10.7786  RMSE=25.8178
+  Horizon  5: MAE=11.0378  RMSE=26.0011
+  Horizon  6: MAE=11.0861  RMSE=25.8310
+  Horizon  7: MAE=11.1198  RMSE=25.7577
+  Horizon  8: MAE=11.1467  RMSE=25.7983
+  Horizon  9: MAE=11.1858  RMSE=25.8603
+  Horizon 10: MAE=11.2064  RMSE=26.0296
+  Horizon 11: MAE=11.1661  RMSE=26.0988
+  Horizon 12: MAE=11.0271  RMSE=25.7775
+============================================================
+Method : Cosine-only (Improvement 1)
+Dataset: ./data/TRAFFIC  Subset: 15%
+============================================================
+Horizon  1 | MAE = 7.9423 +/- 0.4072 | RMSE = 20.5090 +/- 1.3446
+Horizon  2 | MAE = 9.9421 +/- 0.5336 | RMSE = 25.3058 +/- 2.0126
+Horizon  3 | MAE = 10.9932 +/- 0.5961 | RMSE = 27.2414 +/- 2.2458
+Horizon  4 | MAE = 11.6585 +/- 0.6388 | RMSE = 28.4508 +/- 2.3409
+Horizon  5 | MAE = 11.9722 +/- 0.6405 | RMSE = 28.9343 +/- 2.3781
+Horizon  6 | MAE = 12.0623 +/- 0.6320 | RMSE = 28.9972 +/- 2.3831
+Horizon  7 | MAE = 12.1160 +/- 0.6238 | RMSE = 29.0401 +/- 2.3576
+Horizon  8 | MAE = 12.1416 +/- 0.6192 | RMSE = 29.0519 +/- 2.3455
+Horizon  9 | MAE = 12.1675 +/- 0.6158 | RMSE = 29.1088 +/- 2.3467
+Horizon 10 | MAE = 12.1425 +/- 0.6136 | RMSE = 29.1096 +/- 2.3530
+Horizon 11 | MAE = 12.0759 +/- 0.6220 | RMSE = 29.0409 +/- 2.3580
+Horizon 12 | MAE = 12.0625 +/- 0.6395 | RMSE = 28.9204 +/- 2.3462

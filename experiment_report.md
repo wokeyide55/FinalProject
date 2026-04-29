@@ -1,6 +1,6 @@
 # Experiment Report: Improved VSF Wrapper for Variable Subset Forecasting
 
-**Course:** COMP7013AD – Advanced Topics in AI
+**Course:** 7013 – Advanced Machine Learning
 **Method:** Improved-FDW (three enhancements over FDW)
 **Base Model:** MTGNN (Multivariate Time Series Graph Neural Network)
 **Datasets:** SOLAR, ECG, METR-LA, TRAFFIC
