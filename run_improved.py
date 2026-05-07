@@ -136,6 +136,9 @@ parser.add_argument('--use_improved_wrapper', type=str_to_bool, default=False,
 parser.add_argument('--use_cosine_only', type=str_to_bool, default=False,
                     help='Enable Improvement 1 only: cosine retrieval with '
                          'original FDW fixed-temperature weighting')
+parser.add_argument('--use_adaptive_temp_only', type=str_to_bool, default=False,
+                    help='Enable Improvement 2 only: original L-p retrieval with '
+                         'adaptive softmax temperature (no cosine, no joint weighting)')
 parser.add_argument('--joint_alpha', type=float, default=0.3,
                     help='Mixing coefficient α for joint weighting: '
                          '0 = pure FDW, 1 = pure cosine DDW')
@@ -395,6 +398,141 @@ def run_cosine_only_inference(args, engine, dataloader, instance_prototypes,
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Improvement 2 only: original L-p retrieval + adaptive temperature weighting
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _chunked_lp_retrieval(args, testx, instance_prototypes, idx_current_nodes, device,
+                           chunk_size=512):
+    """
+    Memory-efficient L-p nearest-neighbour retrieval that processes prototypes
+    in chunks to avoid OOM on GPUs with limited VRAM.
+
+    instance_prototypes: (P, T, N, C) on device
+    testx: (B, C, N, T) on device
+    Returns same outputs as obtain_relevant_data_from_prototypes.
+    """
+    import numpy as np
+    rem_idx = torch.LongTensor(
+        np.setdiff1d(np.arange(args.num_nodes), idx_current_nodes)
+    ).to(device)
+    idx_sub = torch.LongTensor(idx_current_nodes).to(device)
+
+    # testx is (B, C, N, T); extract subset nodes and convert to (B, T, N_sub, C)
+    testx_sub = testx.transpose(1, 3)[:, :, idx_sub, :]   # (B, T, N_sub, C)
+
+    P = instance_prototypes.shape[0]
+    B = testx.shape[0]
+    dist_acc = []
+
+    for p_start in range(0, P, chunk_size):
+        p_end = min(p_start + chunk_size, P)
+        chunk = instance_prototypes[p_start:p_end, :, idx_sub, :]  # (c, T, N_sub, C)
+        # expand for subtraction: (B, c, T, N_sub, C)
+        chunk_exp = chunk.unsqueeze(0).expand(B, -1, -1, -1, -1)
+        test_exp  = testx_sub.unsqueeze(1).expand(-1, p_end - p_start, -1, -1, -1)
+        diff = torch.pow(torch.abs(chunk_exp - test_exp), args.dist_exp_value)
+        diff = diff.view(B, p_end - p_start, -1).mean(dim=-1)  # (B, c)
+        dist_acc.append(diff)
+        del chunk_exp, test_exp, diff
+
+    all_dist = torch.cat(dist_acc, dim=1)  # (B, P)
+    topk_vals, topk_idxs = torch.topk(all_dist, args.num_neighbors_borrow, dim=-1, largest=False)
+
+    original_testx = testx.clone()
+    testx_rep = testx.repeat(args.num_neighbors_borrow, 1, 1, 1)
+    orig_neighs = []
+    for j in range(args.num_neighbors_borrow):
+        nbs = instance_prototypes[topk_idxs[:, j]].transpose(3, 1)  # (B, C, N, T)
+        orig_neighs.append(nbs)
+        desired = nbs[:, :, rem_idx, :]
+        s, e = j * B, (j + 1) * B
+        testx_rep[s:e, :, rem_idx, :] = desired
+
+    orig_neighs = torch.cat(orig_neighs, dim=0)
+    return testx_rep, topk_vals, orig_neighs, topk_idxs, original_testx
+
+
+def run_adaptive_temp_only_inference(args, engine, dataloader, instance_prototypes,
+                                     device, scaler):
+    """
+    Improvement 2 in isolation: use the original L-p nearest-neighbour retrieval
+    (same as FDW), but replace the fixed softmax temperature with a per-sample
+    adaptive temperature equal to std(discrepancy scores).
+    No cosine retrieval, no joint DDW+FDW weighting.
+    Uses chunked distance computation to avoid CUDA OOM on small GPUs.
+    """
+    from util import obtain_discrepancy_from_neighs
+    from improved_wrapper import adaptive_temperature
+
+    outputs = []
+    realy   = torch.Tensor(dataloader['y_test']).to(device)
+    realy   = realy.transpose(1, 3)[:, 0, :, :]
+
+    idx_current_nodes = get_node_random_idx_split(
+        args, args.num_nodes,
+        args.lower_limit_random_node_selections,
+        args.upper_limit_random_node_selections
+    )
+    realy = realy[:, idx_current_nodes, :]
+
+    for _, (x, y) in enumerate(dataloader['test_loader'].get_iterator()):
+        testx  = torch.Tensor(x).to(device).transpose(1, 3)
+
+        # chunked L-p retrieval (memory-efficient version of obtain_relevant_data_from_prototypes)
+        testx, dist_prot, orig_neighs, neighbs_idxs, _ = \
+            _chunked_lp_retrieval(
+                args, testx, instance_prototypes, idx_current_nodes, device
+            )
+
+        with torch.no_grad():
+            preds = engine.model(
+                testx, args=args,
+                mask_remaining=False,
+                test_idx_subset=idx_current_nodes
+            )
+            preds = preds.transpose(1, 3)[:, 0, :, :]
+            preds = preds[:, idx_current_nodes, :]
+
+            b_size = preds.shape[0] // args.num_neighbors_borrow
+            k      = args.num_neighbors_borrow
+            chunks = [preds[j*b_size:(j+1)*b_size].unsqueeze(1) for j in range(k)]
+            preds  = torch.cat(chunks, dim=1)   # (B, k, |S|, T)
+
+            # FDW discrepancy scores
+            orig_neighs_fc = engine.model(
+                orig_neighs, args=args,
+                mask_remaining=False,
+                test_idx_subset=idx_current_nodes
+            )
+            disc, _ = obtain_discrepancy_from_neighs(
+                preds, orig_neighs_fc, args, idx_current_nodes
+            )  # disc: (B, k)
+
+            # Improvement 2: adaptive temperature from discrepancy std
+            tau = adaptive_temperature(disc)   # (B, 1)
+
+            w = torch.nn.functional.softmax(
+                -disc / tau, dim=-1
+            ).view(b_size, k, 1, 1)
+
+            preds = (w * preds).sum(dim=1)
+
+        outputs.append(preds)
+
+    yhat  = torch.cat(outputs, dim=0)[:realy.size(0)]
+
+    mae_list, rmse_list = [], []
+    for i in range(args.seq_out_len):
+        pred = scaler.inverse_transform(yhat[:, :, i])
+        real = realy[:, :, i]
+        m    = metric(pred, real)
+        mae_list.append(m[0])
+        rmse_list.append(m[1])
+
+    return mae_list, rmse_list, idx_current_nodes
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Original inference  (UW / FDW / Partial / Oracle  – unchanged logic)
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -545,7 +683,7 @@ def main(runid):
 
     # ── Build prototype bank (needed for retrieval-based methods) ─────────────
     instance_prototypes = None
-    if args.use_improved_wrapper or args.use_cosine_only or args.borrow_from_train_data:
+    if args.use_improved_wrapper or args.use_cosine_only or args.borrow_from_train_data or args.use_adaptive_temp_only:
         num_prots = math.floor(args.fraction_prots *
                                dataloader['x_train'].shape[0])
         args.num_prots = num_prots
@@ -575,6 +713,10 @@ def main(runid):
             )
         elif args.use_cosine_only:
             mae, rmse, idx_nodes = run_cosine_only_inference(
+                args, engine, dataloader, instance_prototypes, device, scaler
+            )
+        elif args.use_adaptive_temp_only:
+            mae, rmse, idx_nodes = run_adaptive_temp_only_inference(
                 args, engine, dataloader, instance_prototypes, device, scaler
             )
         else:
@@ -616,9 +758,10 @@ if __name__ == '__main__':
 
     method = ('Improved (cosine+adaptive-T+joint)' if args.use_improved_wrapper
               else ('Cosine-only (Improvement 1)' if args.use_cosine_only
+              else ('Adaptive-temp-only (Improvement 2)' if args.use_adaptive_temp_only
               else ('FDW' if (args.borrow_from_train_data and args.use_ewp)
               else ('UW'  if  args.borrow_from_train_data
-              else  'Partial'))))
+              else  'Partial')))))
 
     sep = '=' * 60
     print(sep)
